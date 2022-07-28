@@ -1,73 +1,73 @@
 $('.input-container').click(function() {
+  var target = $(this);
+  var targetInput = $(this).find('input');
+  var targetSelect = $(this).find('select');
+  var styledSelect = $(this).find('.newSelect');
+  target.addClass('active');
+  targetInput.focus();
+  targetInput.change(function() {
+    var inputValue = $(this).val();
+    var placeholder = target.find('.placeholder')
+    target.removeClass('active');
+    placeholder.html(inputValue);
+  });
+  targetSelect.change(function() {
+    var inputValue = $(this).val();
+    var placeholder = target.find('.placeholder')
+    target.removeClass('active');
+    placeholder.html(inputValue);
+  });
+  styledSelect.click(function() {
     var target = $(this);
-    var targetInput = $(this).find('input');
-    var targetSelect = $(this).find('select');
-    var styledSelect = $(this).find('.newSelect');
-    target.addClass('active');
-    targetInput.focus();
-    targetInput.change(function() {
-      var inputValue = $(this).val();
-      var placeholder = target.find('.placeholder')
-      target.removeClass('active');
-      placeholder.html(inputValue);
-    });
-    targetSelect.change(function() {
-      var inputValue = $(this).val();
-      var placeholder = target.find('.placeholder')
-      target.removeClass('active');
-      placeholder.html(inputValue);
-    });
-    styledSelect.click(function() {
-      var target = $(this);
-      setTimeout(function() {
-        target.parent().parent().removeClass('active');
-      }, 10);
-    });
+    setTimeout(function() {
+      target.parent().parent().removeClass('active');
+    }, 10);
   });
-  
-  // style selects
-  
-  // Create the new select
-  var select = $('.fancy-select');
-  select.wrap('<div class="newSelect"></div>');
-  $('.newSelect').prepend('<div class="newOptions"></div>');
-  
-  //populate the new select
-  select.each(function() {
-    var selectOption = $(this).find('option');
-    var target = $(this).parent().find('.newOptions');
-    selectOption.each(function() {
-      var optionContents = $(this).html();
-      var optionValue = $(this).attr('value');
-      target.append('<div class="newOption" data-value="' + optionValue + '">' + optionContents + '</div>')
-    });
+});
+
+// style selects
+
+// Create the new select
+var select = $('.fancy-select');
+select.wrap('<div class="newSelect"></div>');
+$('.newSelect').prepend('<div class="newOptions"></div>');
+
+//populate the new select
+select.each(function() {
+  var selectOption = $(this).find('option');
+  var target = $(this).parent().find('.newOptions');
+  selectOption.each(function() {
+    var optionContents = $(this).html();
+    var optionValue = $(this).attr('value');
+    target.append('<div class="newOption" data-value="' + optionValue + '">' + optionContents + '</div>')
   });
-  // new select functionality
-  var newSelect = $('.newSelect');
-  var newOption = $('.newOption');
-  // update based on selection 
-  newOption.on('mouseup', function() {
-    var OptionInUse = $(this);
-    var siblingOptions = $(this).parent().find('.newOption');
-    var newValue = $(this).attr('data-value');
-    var selectOption = $(this).parent().parent().find('select option');
-    // style selected option
-    siblingOptions.removeClass('selected');
-    OptionInUse.addClass('selected');
-    // update the actual input
-    selectOption.each(function() {
-      var optionValue = $(this).attr('value');
-      if (newValue == optionValue) {
-        $(this).prop('selected', true);
-      } else {
-        $(this).prop('selected', false);
-      }
-    })
-  });
-  newSelect.click(function() {
-    var target = $(this);
-    target.parent().find('select').change();
-  });
+});
+// new select functionality
+var newSelect = $('.newSelect');
+var newOption = $('.newOption');
+// update based on selection 
+newOption.on('mouseup', function() {
+  var OptionInUse = $(this);
+  var siblingOptions = $(this).parent().find('.newOption');
+  var newValue = $(this).attr('data-value');
+  var selectOption = $(this).parent().parent().find('select option');
+  // style selected option
+  siblingOptions.removeClass('selected');
+  OptionInUse.addClass('selected');
+  // update the actual input
+  selectOption.each(function() {
+    var optionValue = $(this).attr('value');
+    if (newValue == optionValue) {
+      $(this).prop('selected', true);
+    } else {
+      $(this).prop('selected', false);
+    }
+  })
+});
+newSelect.click(function() {
+  var target = $(this);
+  target.parent().find('select').change();
+});
 
 
   var overview ={"Las_Vegas": {"fried_rice": 
@@ -77,9 +77,9 @@ $('.input-container').click(function() {
   "dumplings": 
   {"a":"SUSHISAMBA Las Vegas","b": "Beijing Noodle Cafe","c" :"Asian BBQ & Noodles"}
 },
-"Phoenix": {"fried rice":
+"Phoenix": {"fried_rice":
 {"a":"Wong's Restaurant", "b":"Great Wok", "c":"Mu Shu Asian Grill"},
- "rice noodle": 
+ "rice_noodle": 
  {"a":"Nee House Chinese Restaurant", "b":"Mu Shu Asian Grill", "c":"Noodle & Rice"}, 
  "dumplings": 
  {"a":"Szechwan Palace", "b":"The Clever Koi","c": "Great Wall Cuisine"} 
@@ -88,17 +88,17 @@ $('.input-container').click(function() {
 
  
 
-var Food_Taste={"Las Vegas": {"fried rice": 
-{"a":"Yummy House", "b": "Tasty Station", "c":"Lanai Express"},
+var Food_Taste={"Las_Vegas": {"fried rice": 
+{"a":"Yummy_House", "b": "Tasty Station", "c":"Lanai Express"},
 "rice noodle": 
 {"a":"J & J Szechuan Cuisine", "b": "Dumpling King", "c":"Three Villages Restaurant"},
 "dumplings": 
 {"a":"Mr. Beijing", "b":"Big Wong Restaurant", "c":"Oriental House"}
 
 },
-"Phoenix": {"fried rice": 
+"Phoenix": {"fried_rice": 
 {"a":"Beijing Garden Chinese","b": "Red Wok Buffet", "c":"Golden China"},
-"rice noodle": 
+"rice_noodle": 
 {"a":"Beijing Garden Chinese","b": "Ling and Louie's Kitchen", "c":"Ming's Pagoda"},
 "dumplings": 
 {"a":"Hong Kong Gourmet Buffet","b": "Pei Wei Asian Market", "c":"Shangri-La Chinese"}
