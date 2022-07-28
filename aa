@@ -1,0 +1,72 @@
+<form action="https://www.yelp.com/search" method="get" target="_blank">
+    <button type="submit">Find Top 3 Restaurants</button>
+
+    <textarea class="output_text" readonly>
+    </textarea>
+
+
+    &:after {
+        content:'\f105';
+        display:block;
+        position:absolute;
+        top:0;
+        right:0;
+        height:55px;
+        width:55px;
+        font-family:FontAwesome;
+        line-height:55px;
+        text-align:center;
+        color:#ff202f;
+      }
+
+
+
+      <body>
+        <form >
+            I'm looking for the best
+              <span id="cuisine" class="input-container">
+              <span class="input selectbox">
+                <select name="cflt" class="fancy-select hidden">
+                  <option value="fried rice">fried rice</option>
+                  <option value="rice noodle">rice noodle</option>
+                  <option value="dumplings">dumplings</option>
+                  <option value="won ton">won ton</option>
+                  <option value="chow mein">chow mein</option>
+                </select>
+              </span>
+            </span> 
+          
+            chinese restaurant in 
+            <span id="location" class="input-container no-overflow">
+               <span class="input selectbox">
+                <select name="cflt" class="fancy-select hidden">
+                  <option value="Las Vegas">Las Vegas</option>
+                  <option value="Phoenix">Phoenix</option>
+                  <option value="Chandler">Chandler</option>
+                  <option value="Scottsdale">Scottsdale</option>
+                  <option value="Mesa">Mesa</option>
+                  <option value="Henderson">Henderson</option>
+                  <option value="Tempe">Tempe</option>
+                  <option value="Madison">Madison</option>
+                </select>
+              </span>
+            </span>
+              <span id="atmosphere" class="input-container">
+              <span class="input selectbox">
+                <select class="fancy-select hidden" name="find_desc">
+                  <option value="Overall Experience">Overall Experience</option>
+                  <option value="Food Taste">Food Taste</option>
+                </select>
+              </span>
+            </span> 
+            is my priority.
+    
+          </form>
+          <div class="form">
+            <button onClick="click_display()">Find Top 3 Restaurants</button>
+            <p id="getResult1"></p>
+            <p id="getResult2"></p>
+            <p id="getResult3"></p>
+          </div>>
+    
+    </body>
