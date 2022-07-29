@@ -88,9 +88,9 @@ newSelect.click(function() {
 
  
 
-var Food_Taste={"Las_Vegas": {"fried rice": 
+var Food_Taste={"Las_Vegas": {"fried_rice": 
 {"a":"Yummy_House", "b": "Tasty Station", "c":"Lanai Express"},
-"rice noodle": 
+"rice_noodle": 
 {"a":"J & J Szechuan Cuisine", "b": "Dumpling King", "c":"Three Villages Restaurant"},
 "dumplings": 
 {"a":"Mr. Beijing", "b":"Big Wong Restaurant", "c":"Oriental House"}
